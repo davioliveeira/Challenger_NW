@@ -1,0 +1,95 @@
+//User Story:
+    Eu como usuário comprador da store
+    Gostaria de ter acesso à produtos Eco-Friendly
+    Assim poderia consumir produtos que respeitem a natureza
+
+
+
+                //  Caso de teste New Working \\
+
+--Acessar a Aba Eco-Friendly--
+    Dado que entro no site da Google Store;
+    Quando procuro na aba de coloções;
+    E seleciono a opção de filtro Eco-Friendly;
+    Então deve ser exibido apenas produtos que são amigáveis ao meio ambiente;
+
+--Busca de Produtos--
+    Dado que estou na aba de coleçoes eco-Friendly;
+    Quando realizo uma pesquisa por um determinado produto;
+    Então devo ver na minha tela uma lista de produtos relacionados a pesquisa;
+
+--Verificação de Existencia de Subcategorias--
+    Dado que estou na aba de coleçoes eco-Friendly;
+    Quando procuro por subcategorias;
+    Então devo ver na minha tela uma lista de subcategorias voltadas para o nincho;
+    
+        --Verificação de Filtragem por Subcategorias--
+            Dado que estou na aba de coleções eco-friendly;
+            Quando faço uma filtragem por algum filtro de subcategoria;
+            Então devo ver na minha tela apenas produtos voltados para o filtro estabelecido;
+
+        --Verificação do critério de Ordenar Por--
+            Dado que estou na aba de coleções eco-friendly;
+            Quando escolho algum critério de visualização;
+            Então devo ver na minha tela apenas produtos da de acordo com a ordem estabelecida estabelecido;
+
+
+        --Combinação de Filtros e Ordem--
+            Dado que estou na aba de coleções eco-friendly;
+            Quando faço a seleção de filtros de Subcategorias combinado com Ordenar Por;
+            Então devo ver na minha tela apenas uma lista de produtos da subcategoria escolhida;
+            E ordenada por o critério escolhido;
+
+--Validação das Informaçoes dos Itens--
+        --Validação da Existência de Imagem, Nome, Preço--
+            Dado que estou na aba de coleções eco-friendly;
+            Quando percorro a lista de produtos;
+            Então devo ver na minha tela imagem, nome, preço do respectivos produtos;
+
+        --Validação da Pag. do Produto--
+            Dado que estou na aba de coleções eco-friendly;
+            Quando clico em um produto do meu interesse;
+            Então devo ser direcionado para tela do produto;
+            --Validação da Descrição do Produto--
+                Dado que estou na pag do produto;
+                Quando percorro as informaçoes do produto;
+                Então devo ver uma maior quantidade de detalhes do produto, como: fotos do produto, descrição, quantidade disponivel, opções de compra
+                E produtos recomendados ;  
+
+--Validação do Carrinho de Compras--
+    --Verificação para adicionar itens no carrinho--
+        Dado que eu entro no site da store e estou conectado com minha conta Google;
+        Quando aperto no meu carrinho de compras;
+        Entao devo ver todos os produtos eco-friendly adicionados anteriormente; 
+
+    --Verificação dos itens contidos no Carrinho--
+        Dado que eu entro no site da store e estou conectado com minha conta Google;
+        Quando aperto no meu carrinho de compras;
+        Entao devo ver todos os produtos eco-friendly adicionados anteriormente;  
+    
+
+
+Automatizar Pesquisa de Itens Eco 
+            categorias 
+            subcategorias 
+            adicionar um item eco// adc mais de 2 itens 
+            verificação do login de compra 
+            campos de detalhes
+            adicionar a white list
+
+
+
+
+
+            /// <reference types="cypress" />
+
+
+describe('Test e2e to Challenge New Working', () => {
+  it('search for a product in the eco-friendly category', () => {
+    cy.visit('https://shop.googlemerchandisestore.com')
+    cy.wait(5)
+    cy.get('.navbar-row-1 > .container-navbar-menu-button > .navbar-brand > .material-icons').click()
+    cy.get(':nth-child(5) > .collapsible-header > .material-icons').click()
+    cy.xpath('//*[@id="slide-out"]/ul[1]/li[5]/div/ul/li[4]/a').click()
+  });
+});
